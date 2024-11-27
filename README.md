@@ -1,7 +1,3 @@
-Segue a versão atualizada do **README.md**, levando em conta que o sistema será desenvolvido em **Java** com **Spring Boot** e **PostgreSQL**, e incluirá a tabela de **Localidade**:  
-
----
-
 # **Sistema Acadêmico**
 
 Bem-vindo ao repositório do **Sistema Acadêmico**, um sistema completo para gerenciar a administração acadêmica de instituições de ensino.  
@@ -12,10 +8,11 @@ Bem-vindo ao repositório do **Sistema Acadêmico**, um sistema completo para ge
 
 O Sistema Acadêmico é uma solução robusta e escalável, projetada para gerenciar estudantes, professores, disciplinas, matrículas e avaliações, além de oferecer suporte a funcionalidades como gestão de precedências e emissão de relatórios.  
 
-Este sistema será desenvolvido com as seguintes tecnologias:
+Este sistema é desenvolvido com as seguintes tecnologias:
 - **Linguagem:** Java
 - **Framework:** Spring Boot
 - **Banco de Dados:** PostgreSQL
+- **Automação:** Makefile para tarefas comuns do ciclo de desenvolvimento
 
 ---
 
@@ -38,24 +35,13 @@ Este sistema será desenvolvido com as seguintes tecnologias:
 
 ---
 
-## **Estrutura do Banco de Dados**
-O sistema inclui as seguintes tabelas principais:  
-- **Estudante**: Gerencia informações dos alunos.
-- **Curso**: Armazena os cursos oferecidos pela instituição.
-- **Disciplina**: Registra as disciplinas disponíveis.
-- **Localidade**: Representa cidades, estados ou países associados a estudantes, professores ou campi.
-- **Matrícula**: Relaciona estudantes a cursos e disciplinas.
-- **PlanoCurso**: Associa disciplinas ao semestre de um curso.
-- **Precedência**: Registra pré-requisitos entre disciplinas.
-- **Avaliação**: Armazena as notas dos estudantes.
-
----
-
 ## **Pré-requisitos**
 Para executar o projeto localmente, você precisará de:
 - **Java 17+**  
 - **Maven** para gerenciar dependências  
 - **PostgreSQL** como banco de dados  
+- **Docker** (opcional para gerenciar o banco de dados)  
+- **Make** (opcional para automação de tarefas)  
 - **Git** para controle de versão  
 
 ---
@@ -69,30 +55,35 @@ cd sistema-academico
 ```
 
 ### **2. Configure o Banco de Dados**
-Crie um banco de dados PostgreSQL:
-```sql
-CREATE DATABASE sistema_academico;
+Se utilizar o Docker, inicie o banco de dados com:
+```bash
+make db-start
 ```
 
-Atualize as configurações no arquivo `application.properties` ou `application.yml`:
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/sistema_academico
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-```
+Para configurar manualmente:
+1. Crie um banco de dados PostgreSQL:
+   ```sql
+   CREATE DATABASE sistema_academico;
+   ```
+2. Atualize as configurações no arquivo `application.properties` ou `application.yml`:
+   ```properties
+   spring.datasource.url=jdbc:postgresql://localhost:5432/sistema_academico
+   spring.datasource.username=seu_usuario
+   spring.datasource.password=sua_senha
+   spring.jpa.hibernate.ddl-auto=update
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+   ```
 
 ### **3. Compile o Projeto**
-Compile e baixe as dependências do projeto com Maven:
+Utilize o Maven para compilar o projeto:
 ```bash
-mvn clean install
+make build
 ```
 
 ### **4. Execute o Sistema**
 Inicie o servidor:
 ```bash
-mvn spring-boot:run
+make run
 ```
 
 O sistema estará disponível em: [http://localhost:8080](http://localhost:8080)
@@ -115,9 +106,38 @@ sistema-academico/
 │   ├── application.properties # Configurações do sistema
 │   └── static/                # Arquivos estáticos (HTML, CSS, JS)
 │
-├── pom.xml            # Gerenciador de dependências Maven
-└── README.md          # Documentação do projeto
+├── scripts/
+│   └── init.sql               # Script para inicialização do banco de dados
+├── Makefile                   # Automação de tarefas
+├── pom.xml                    # Gerenciador de dependências Maven
+└── README.md                  # Documentação do projeto
 ```
+
+---
+
+## **Uso do Makefile**
+
+O **Makefile** foi incluído para facilitar tarefas comuns no ciclo de desenvolvimento. Confira os comandos disponíveis:
+
+### **Comandos Principais**
+- `make build`:
+  - Compila o projeto e gera o arquivo `.jar` na pasta `target/`.
+- `make run`:
+  - Compila e executa o aplicativo.
+- `make clean`:
+  - Remove todos os arquivos temporários e de build.
+- `make test`:
+  - Executa os testes automatizados do projeto.
+- `make db-start`:
+  - Inicia o banco de dados PostgreSQL em um contêiner Docker.
+- `make db-stop`:
+  - Para e remove o contêiner PostgreSQL.
+- `make db-init`:
+  - Executa o script `init.sql` para inicializar o banco de dados.
+- `make db-status`:
+  - Verifica o status do contêiner PostgreSQL.
+- `make help`:
+  - Lista todos os comandos disponíveis.
 
 ---
 
