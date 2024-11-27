@@ -50,7 +50,7 @@ Para executar o projeto localmente, você precisará de:
 
 ### **1. Clone o Repositório**
 ```bash
-git clone https://github.com/usuario/sistema-academico.git
+git clone https://github.com/UCAN-REPO-PROJECTS/sistema-academico.git
 cd sistema-academico
 ```
 
