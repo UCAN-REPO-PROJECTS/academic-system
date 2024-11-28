@@ -1,0 +1,16 @@
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/SistemaAcademicoApplication.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/exceptions/EntityNotFoundException.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/loaders/DisciplinaDataLoader.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/loaders/LocalidadeDataLoader.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/response/ApiResponse.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/response/HttpStatusCode.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/utils/CsvDataLoader.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/utils/DataLoader.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/utils/FileDataLoader.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/common/utils/JsonDataLoader.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/entities/Disciplina.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/entities/Localidade.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/repositories/DisciplinaRepository.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/repositories/GenericRepository.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/repositories/LocalidadeRepository.java
+/home/jonathanm/projects/ucan/SDP2/academic-system/src/main/java/com/example/sistema_academico/services/DataLoaderService.java

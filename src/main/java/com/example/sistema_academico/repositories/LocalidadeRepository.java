@@ -1,0 +1,26 @@
+package com.example.sistema_academico.repositories;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.example.sistema_academico.entities.Localidade;
+
+/**
+ *
+ * @author aires
+ */
+
+@Repository
+public interface LocalidadeRepository extends JpaRepository<Localidade, Integer> {
+
+    // JPQL Query Method
+    @Query("SELECT l FROM Localidade l WHERE (l.nome LIKE :nome) AND (l.fkLocalidadePai is NULL)")
+    public Optional<Localidade> findByNome(String nome);
+
+    // JPQL Query Method
+    @Query("SELECT l FROM Localidade l WHERE (l.nome LIKE :nome) AND (l.fkLocalidadePai.nome LIKE :pai)")
+    public Localidade findByNomeByPai(String nome, String pai);
+}

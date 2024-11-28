@@ -1,0 +1,4 @@
+com/example/sistema_academico/common/response/ApiResponse.class
+com/example/sistema_academico/SistemaAcademicoApplication.class
+com/example/sistema_academico/common/exceptions/EntityNotFoundException.class
+com/example/sistema_academico/common/utils/FileDataLoader.class

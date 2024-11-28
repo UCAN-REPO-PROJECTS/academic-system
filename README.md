@@ -96,8 +96,19 @@ sistema-academico/
 │
 ├── src/main/java/
 │   ├── com.example.sistemaacademico/
+        ├── common/
+        │    ├── exceptions/
+        │    │    ├── EntityNotFoundException.java
+        │    │    ├── ValidationException.java
+        │    │    └── AccessDeniedException.java
+        │    ├── response/
+        │    │    ├── ApiResponse.java
+        │    │    └── HttpStatusCode.java
+        │    └── utils/
+        │         └── CommonUtils.java
 │       ├── controllers/     # Controladores das rotas REST
-│       ├── models/          # Entidades e modelos de dados
+│       ├── entities/        # Entidades
+│       ├── models/          # Modelos de dados
 │       ├── repositories/    # Interfaces para acesso ao banco de dados
 │       ├── services/        # Regras de negócio
 │       └── SistemaAcademicoApplication.java # Classe principal
